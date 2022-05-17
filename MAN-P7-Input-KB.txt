@@ -1,0 +1,29 @@
+#---------------------------------------------------------------------
+# Shortforms in comments: P -> Person, W -> Woman, M -> Man, F -> Female, 
+#                         Fa -> Father, Mo -> Mother, Ba -> Bachelor, Ma -> Male
+# see P6 for original ALC KB
+# ¬P ⊔ Mammal ⊓ Biped
+# (¬W ⊔ (P ⊓ F)) ⊓ (¬P ⊔ ¬F ⊔ W))
+# (¬M ⊔ (P ⊔ Ma)) ⊓ (¬P ⊔ ¬Ma ⊔ W))
+# (¬Fa ⊔ M ⊓     ∃parentOf.P) ⊓ (¬M ⊔ ∀parentOf.¬P ⊔ Fa)
+# (¬Mo ⊔ W ⊓ ∃parentOf.P) ⊓ (¬W ⊔ ∀parentOf.¬P ⊔ Mo)
+# (¬Ba ⊔ M ⊓ ∀husbandOf.¬P) ⊓ (¬M ⊔ ∃husbandOf.P ⊔ Ba)
+#---------------------------------------------------------------------
+
+Class: NNF1
+   EquivalentTo:    Mammal or not Person and Biped
+
+Class: NNF2
+   EquivalentTo:    (not Woman or (Person and Female)) and (not Person or not Female or Woman)
+
+Class: NNF3
+   EquivalentTo:    (not Man or (Person and Male)) and (not Person or not Male or Man)
+
+Class: NNF4
+   EquivalentTo:    (not Father or Man and parentOf some Person) and (not Man or parentOf only not Person or Father)
+
+Class: NNF5
+   EquivalentTo:    (not Mother or Woman and parentOf some Person) and (not Woman or parentOf only not Person or Mother)
+
+Class: NNF6
+   EquivalentTo:    (not Bachelor or Man and husbandOf only not Person) and (not Man or parentOf some Person or Bachelor)

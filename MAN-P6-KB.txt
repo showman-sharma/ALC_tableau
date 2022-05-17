@@ -1,0 +1,62 @@
+#---------------------------------------------------------------------
+# CONCEPTS
+# Person ⊑ Mammal ⊓ Biped
+# Woman = Person ⊓ Female
+# Man = Person ⊓ Male
+# Father = Man ⊓ ∃parentOf.Person
+# Mother = Woman ⊓ ∃parentOf.Person
+# Bachelor = Man ⊓ ¬∃husbandOf.Person
+#---------------------------------------------------------------------
+
+Class: Person
+   SubClassOf:      Mammal and Biped
+   DisjointUnionOf: Man, Woman
+
+Class: Woman
+   EquivalentTo:    Person and Female
+
+Class: Man
+   EquivalentTo:    Person and Male
+
+Class: Mother
+   EquivalentTo:    Woman and parentOf some Person
+
+Class: Father
+   EquivalentTo:    Man and parentOf some Person
+
+Class: Bachelor
+   EquivalentTo:    Man and not (husbandOf some Person)
+
+#---------------------------------------------------------------------
+# ROLES
+#---------------------------------------------------------------------
+
+ObjectProperty: parentOf
+  Domain: Person
+  Range:  Person
+
+ObjectProperty: husbandOf
+  Domain: Person
+  Range:  Person
+
+#---------------------------------------------------------------------
+# INDIVIDUALS
+# Mother(Priya)
+# Bachelor(Dhruv)
+#---------------------------------------------------------------------
+
+Individual: Priya
+  Types:  Mother
+  Facts:  parentOf Dhruv
+  DifferentFrom: Dhruv
+
+Individual: Dhruv
+  Types: Bachelor
+
+#---------------------------------------------------------------------
+# CONSTRAINTS
+#---------------------------------------------------------------------
+
+DisjointClasses:   Man, Woman
+DifferentIndividuals: Priya, Dhruv
+

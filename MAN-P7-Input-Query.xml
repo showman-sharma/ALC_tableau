@@ -1,0 +1,11 @@
+<KB>
+    <Individual>
+        <INDIVIDUAL>Dhruv</INDIVIDUAL>
+        <Types>
+            <EXISTS>
+                <ROLE>parentOf</ROLE>
+                <CONCEPT>Person</CONCEPT>
+            </EXISTS>
+        </Types>
+    </Individual>
+</KB>

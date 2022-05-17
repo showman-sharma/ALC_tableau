@@ -1,0 +1,4 @@
+# Query
+Individual: Dhruv
+    Types:  parentOf some Person  #-- (∃R.C)(a)
+#-- End of File
